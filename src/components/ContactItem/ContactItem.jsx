@@ -12,7 +12,7 @@ export const ContactItem = ({ item }) => {
   return (
     <StyledItem>
       <StyledText>
-        {item.name}: {item.number}
+        {item.name}: {item.phone}
       </StyledText>
       <StyledBtm type="button" name={item.id} onClick={onClick}>
         delete
