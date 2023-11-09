@@ -4,18 +4,15 @@ import { Filter } from './Filter/Filter';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllContacts } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
 import { selectIsLoading } from 'redux/selectors';
 import { selectError } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // Отримуємо частини стану
-  // const { contacts, isLoading, error } = useSelector(selectContacts);
+
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  // Викликаємо операцію
   useEffect(() => {
     dispatch(fetchAllContacts());
   }, [dispatch]);

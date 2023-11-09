@@ -1,6 +1,5 @@
 import { StyledItem, StyledBtm, StyledText } from './ContactItem.styled';
 import { useDispatch } from 'react-redux';
-import { delContact } from 'redux/contactsSlice';
 import { fetchDelContact } from 'redux/operations';
 
 export const ContactItem = ({ item }) => {
