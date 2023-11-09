@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
+import { fetchAddContact } from 'redux/operations';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import {
@@ -10,13 +11,13 @@ import {
   StyledInput,
 } from './AddForm.styled';
 import { useState } from 'react';
-import { contactsState } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 
 export const AddForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const contacts = useSelector(contactsState);
+  const contacts = useSelector(selectContacts);
 
   const onChange = evt => {
     let nameInput = evt.currentTarget.name;
@@ -27,7 +28,7 @@ export const AddForm = () => {
   const newContact = {
     name: name,
     number: number,
-    id: nanoid(),
+    // id: nanoid(),
   };
 
   const onSubmit = evt => {
@@ -40,7 +41,7 @@ export const AddForm = () => {
         `${newContact.name} is already in contacts`
       );
     }
-    dispatch(addContact(newContact));
+    dispatch(fetchAddContact(newContact));
     reset();
   };
 
