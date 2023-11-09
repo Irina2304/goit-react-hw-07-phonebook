@@ -1,8 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
 import { fetchAddContact } from 'redux/operations';
-import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import {
   StyledForm,
@@ -28,7 +26,6 @@ export const AddForm = () => {
   const newContact = {
     name: name,
     number: number,
-    // id: nanoid(),
   };
 
   const onSubmit = evt => {
