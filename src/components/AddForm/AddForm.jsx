@@ -13,8 +13,10 @@ import { selectContacts } from 'redux/selectors';
 
 export const AddForm = () => {
   const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
   const contacts = useSelector(selectContacts);
 
   const onChange = evt => {
